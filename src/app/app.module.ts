@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http'; //permite las llamadas api en rjx
 
 import { AppComponent } from './app.component';
 import { PaisModule } from './pais/pais.module';
@@ -15,6 +16,7 @@ import { RouterModule } from '@angular/router';
     RouterModule,
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     PaisModule,
     SharedModule
   ],
