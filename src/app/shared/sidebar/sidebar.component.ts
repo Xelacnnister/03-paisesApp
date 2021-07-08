@@ -11,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
       }
     `
   ]
-})//ponemos el style del pointer aqui para que solo haga objetivo a los "li" del componente Sidebar
+})//ponemos el style del pointer aqui para que solo haga objetivo a los "li" del componente Sidebar - nos permite trabajar el CSS de forma encapsulada en este componente
 export class SidebarComponent implements OnInit {
 
   constructor() { }
