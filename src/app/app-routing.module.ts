@@ -11,7 +11,7 @@ const routes: Routes = [/*ver RouterModule.forRoot( routes ) en @NgModule*/
     {
         path: '',
         component: PorPaisComponent,/*para usar PorPaisComponent, debe estar importado en app.module.ts y exportado en respectivo módulo en pais(carpeta)*/
-        pathMatch: 'full'
+        pathMatch: 'full'/*pathMatch = 'full' produce un resultado de ruta cuando los segmentos restantes, no coincidentes de la coincidencia de URL es la ruta del prefijo*/
     },
     {
         path: 'region',
