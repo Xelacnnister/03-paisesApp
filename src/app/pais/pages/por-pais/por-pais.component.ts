@@ -19,8 +19,11 @@ export class PorPaisComponent {
     console.log(this.termino);
     
     this.paisService.buscarPais( this.termino )//para que un Obbservable se dispare debo tener por lo menos un subscribe
-      .subscribe( (resp) => {
-        console.log(resp);
+      .subscribe( (paises) => {//cambiamos el "resp" por "paises" ya que ahora que es de tipado Country[], tiene más sentido
+        console.log(paises);
+
+        
+
       }, (err) => { //cuando no encuentre el termino buscado (error 404), mostrará lo siguiente:
         this.hayError = true;//mediante el ngIf muestra el mensaje de error
         
