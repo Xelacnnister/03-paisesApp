@@ -15,11 +15,13 @@
 
 <hr>
 
-<div class="alert alert-danger">
-    No se encontró nada con el término ABC
+<div *ngIf="hayError" 
+     class="alert alert-danger">
+    No se encontró nada con el término {{ termino }}
 </div>
 
-<table class="table table-hover">
+<table *ngIf="!hayError"
+       class="table table-hover">
     <thead>
         <tr>
             <th> # </th>
