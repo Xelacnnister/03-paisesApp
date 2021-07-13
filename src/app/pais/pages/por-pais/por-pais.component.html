@@ -4,7 +4,10 @@
 <div class="row">
     <div class="col">
 
-        <app-pais-input></app-pais-input>
+        <app-pais-input
+            (onEnter)="buscar( $event )"><!--escuchamos en el padre el evento (onEnter) y llamamos el método buscar() que se encuentra en el por-pais.component.ts y mandamos el evento ( $event )-->
+                                            <!-- Dentro de el ( $event ) viene el string producto de input -->
+        </app-pais-input>
 
     </div>
 </div>

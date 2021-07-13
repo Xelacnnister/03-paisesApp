@@ -18,11 +18,12 @@ export class PorPaisComponent {
 
   constructor( private paisService: PaisService) { }//inyectamos el servicio en el constructor para poder usarlo
 
-  buscar(){//postea el término buscado
-    this.hayError = false;//mediante el ngIf NO muestra el mensaje de error
-    console.log(this.termino);
+  buscar( termino: string ){//recibo el término de busqueda de tipo string
     
-    this.paisService.buscarPais( this.termino )//para que un Obbservable se dispare debo tener por lo menos un subscribe
+    this.hayError = false;//mediante el ngIf NO muestra el mensaje de error
+    this.termino  = termino;//this.termino es iagual al termino que recibo como parametro
+    
+    this.paisService.buscarPais( termino )//para que un Obbservable se dispare debo tener por lo menos un subscribe / podemos usar this.termino o el termino que recibimos como parametro indistintamente
       .subscribe( (paises) => {//cambiamos el "resp" por "paises" ya que ahora que es de tipado Country[], tiene más sentido
         console.log(paises);
 
