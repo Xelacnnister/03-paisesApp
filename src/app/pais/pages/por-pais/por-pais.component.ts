@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PaisService } from '../../services/pais.service';
 
+import { Country } from '../../interfaces/pais-interface';
+
 @Component({
   selector: 'app-por-pais',
   templateUrl: './por-pais.component.html',
@@ -9,8 +11,10 @@ import { PaisService } from '../../services/pais.service';
 })
 export class PorPaisComponent {
 
-  termino: string = '';
+  termino : string = '';
   hayError: boolean = false;
+  paises  : Country[] = [];
+ 
 
   constructor( private paisService: PaisService) { }//inyectamos el servicio en el constructor para poder usarlo
 
@@ -22,11 +26,11 @@ export class PorPaisComponent {
       .subscribe( (paises) => {//cambiamos el "resp" por "paises" ya que ahora que es de tipado Country[], tiene más sentido
         console.log(paises);
 
-        
+        this.paises = paises;
 
       }, (err) => { //cuando no encuentre el termino buscado (error 404), mostrará lo siguiente:
         this.hayError = true;//mediante el ngIf muestra el mensaje de error
-        
+        this.paises   = [];//Purga el array volviendolo a 0, eso nos permite implementar el ngIf= "paises.length > 0" en el html, de modo que la tabla no se mostrará si no hay resultados válidos
       })
   }
 

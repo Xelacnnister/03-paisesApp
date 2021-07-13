@@ -1,4 +1,4 @@
-export interface Country {
+export interface Country { //para lograr esta interfaz facilmente, obtenemos un resultado de búsqueda con Postman, luego usamos https://quicktype.io/ para que nos substraiga la interfz de ese resultado
     name:           string;
     topLevelDomain: string[];
     alpha2Code:     string;
