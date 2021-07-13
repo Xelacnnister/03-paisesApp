@@ -3,6 +3,7 @@
             name="termino"
             class="form-control"
             [(ngModel)]="termino"
-            placeholder="Buscar país ...">
+            (input)="teclaPresionada()"
+            [placeholder]="placeholder"> <!--Aplica la variable placeholder que recibe de pais-input, quien a su vez lo recebe de por-capita y por-pais-->
 </form>
 

@@ -5,8 +5,10 @@
     <div class="col">
 
         <app-pais-input
-            (onEnter)="buscar( $event )"><!--escuchamos en el padre el evento (onEnter) y llamamos el método buscar() que se encuentra en el por-pais.component.ts y mandamos el evento ( $event )-->
-                                            <!-- Dentro de el ( $event ) viene el string producto de input -->
+            (onEnter)="buscar( $event )"
+            (onDebounce)="sugerencias( $event )"
+            placeholder="Buscar país ..."><!--escuchamos en el padre el evento (onEnter) y llamamos el método buscar() que se encuentra en el por-pais.component.ts y mandamos el evento ( $event ). Dentro de el ( $event ) viene el string producto de input -->
+                                            
         </app-pais-input>
 
     </div>
