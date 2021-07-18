@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { switchMap } from 'rxjs/operators';
+import { switchMap, tap } from 'rxjs/operators';
 import { PaisService } from '../../services/pais.service';
+import { Country } from '../../interfaces/pais-interface';
 
 @Component({
   selector: 'app-ver-pais',
@@ -10,6 +11,8 @@ import { PaisService } from '../../services/pais.service';
   ]
 })
 export class VerPaisComponent implements OnInit {
+
+  pais!: Country;
 
   constructor( 
     private activatedRoute: ActivatedRoute, //implementamos el private activatedRoute de @angular/router. / Viene con lo necesario para poder suscribirnos a cualquier cambio en la url
@@ -20,12 +23,12 @@ export class VerPaisComponent implements OnInit {
 
     this.activatedRoute.params //accedemos al Observable que contierne los parámetros
       .pipe(//para usar los operadores de rxjs./ dentro podemos especificar cualquier cantidad de operadores que van a trabajar con el producto del Observable anterior, en este caso: params
-        switchMap( ({ id }) => this.paisService.getPaisPorAlpha( id ) )//switchMap es uno de los oeradores de transformación, recibe un Observable( ({ id })) y devuelve otro Observable( this.paisService.getPaisPorAlpha( id ) )
-      )
-        .subscribe( resp => { //subscribimos al Observable params
-          console.log( resp );
+        switchMap( ({ id }) => this.paisService.getPaisPorAlpha( id ) ), //switchMap es uno de los oeradores de transformación, recibe un Observable( ({ id })) y devuelve otro Observable( this.paisService.getPaisPorAlpha( id ) )
+        tap( console.log )
+        )
+        .subscribe( pais => this.pais = pais ); //subscribimos al Observable params
           
-      });
+      
       
 
     /* Versión larga con doble .subscribe */ 
