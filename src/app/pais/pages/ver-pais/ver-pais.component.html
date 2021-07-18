@@ -22,8 +22,34 @@
                 <li class="list-group-item">
                     <strong>Población</strong> {{ pais.population | number }}
                 </li>
+                <li class="list-group-item">
+                    <strong>Código numérico</strong> {{ pais.numericCode | number }}
+                </li>
+                <li class="list-group-item">
+                    <strong>Código alpha3</strong> {{ pais.alpha3Code }}
+                </li>
+
             </ul>
         </div>
     </div>
+    <h3></h3>
+    <div class="row">
+        <div class="col">
+            <li class="badge bg-primary mr-5">{{ pais.translations.de }}</li>
+            <li class="badge bg-primary mr-5">{{ pais.translations.es }}</li>
+            <li class="badge bg-primary mr-5">{{ pais.translations.fr }}</li>
+            <li class="badge bg-primary mr-5">{{ pais.translations.ja }}</li>
+            <li class="badge bg-primary mr-5">{{ pais.translations.it }}</li>
+            <li class="badge bg-primary mr-5">{{ pais.translations.br }}</li>
+            <li class="badge bg-primary mr-5">{{ pais.translations.pt }}</li>
+            <li class="badge bg-primary mr-5">{{ pais.translations.nl }}</li>
+            <li class="badge bg-primary mr-5">{{ pais.translations.hr }}</li>
+            <li class="badge bg-primary mr-5">{{ pais.translations.fa }}</li>
+        </div>
+    </div> 
+    
+    <!-- <pre class="mt-5">
+        {{ pais | json }}
+    </pre> -->
 </ng-template>
 
