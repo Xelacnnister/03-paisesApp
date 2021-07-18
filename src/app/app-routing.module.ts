@@ -22,7 +22,7 @@ const routes: Routes = [/*ver RouterModule.forRoot( routes ) en @NgModule*/
         component: PorCapitalComponent
     },
     {
-        path: 'pais/:id',/*Hacerlo dinámico */
+        path: 'pais/:id',/*Hacerlo dinámico./ el id lo recibimos en los params de ver-pais.component.ts */
         component: VerPaisComponent
     },
     {
