@@ -15,9 +15,9 @@
 
 
         <button *ngFor="let region of regiones"
-                class="btn btn-outline-primary mr-5"
-                (click)="activarRegion( region )"> <!--Recibimos el termino región generado por el propio ngFor-->
-            {{ region }}
+                [class]="getClaseCSS( region )"
+                (click)="activarRegion( region )"> <!--Recibimos el termino region generado por el propio ngFor--><!--En [class]="" llamamos el método getClaseCSS() y éste recibe region como param-->
+            {{ region | titlecase }}
         </button>
     </div>
 </div>
