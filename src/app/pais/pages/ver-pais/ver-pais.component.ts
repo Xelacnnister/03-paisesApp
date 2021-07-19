@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { switchMap, tap } from 'rxjs/operators';
+
 import { PaisService } from '../../services/pais.service';
 import { Country } from '../../interfaces/pais-interface';
 
@@ -26,7 +27,7 @@ export class VerPaisComponent implements OnInit {
         switchMap( ({ id }) => this.paisService.getPaisPorAlpha( id ) ), //switchMap es uno de los oeradores de transformación, recibe un Observable( ({ id })) y devuelve otro Observable( this.paisService.getPaisPorAlpha( id ) )
         tap( console.log )
         )
-        .subscribe( pais => this.pais = pais ); //subscribimos al Observable params
+      .subscribe( pais => this.pais = pais ); //subscribimos al Observable params
           
       
       
