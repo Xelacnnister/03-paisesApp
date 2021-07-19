@@ -6,11 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styles: [
   ]
 })
-export class PorRegionComponent implements OnInit {
+export class PorRegionComponent {
+
+  regiones: string[] = ['africa', 'americas', 'asia', 'europe', 'oceania']; //trabajamos con los elementos de la array en lowercase
+  regionActiva: string = '';
 
   constructor() { }
 
-  ngOnInit(): void {
+  activarRegion( region: string){
+    this.regionActiva = region;
+
+    //TODO: hacer el llamado al servicio
   }
 
 }
