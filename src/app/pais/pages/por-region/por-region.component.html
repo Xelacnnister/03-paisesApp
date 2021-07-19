@@ -19,5 +19,12 @@
                 (click)="activarRegion( region )"> <!--Recibimos el termino region generado por el propio ngFor--><!--En [class]="" llamamos el método getClaseCSS() y éste recibe region como param-->
             {{ region | titlecase }}
         </button>
+
+        <div *ngIf="paises.length > 0">
+            <div class="col">
+                <app-pais-tabla [paises] = "paises"></app-pais-tabla><!--paises[paises] va a ser = a la variable paises"paises" que tengo en mi por-pais.component, si no equiparamos las variables no mostrará nada-->
+            </div>  
+        </div>
+        
     </div>
 </div>

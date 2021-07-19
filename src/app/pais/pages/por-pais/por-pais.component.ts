@@ -21,7 +21,7 @@ export class PorPaisComponent {
   buscar( termino: string ){//recibo el término de busqueda de tipo string
     
     this.hayError = false;//mediante el ngIf NO muestra el mensaje de error
-    this.termino  = termino;//this.termino es iagual al termino que recibo como parametro
+    this.termino  = termino;//this.termino es igual al termino que recibo como parametro
     
     this.paisService.buscarPais( termino )//para que un Obbservable se dispare debo tener por lo menos un subscribe / podemos usar this.termino o el termino que recibimos como parametro indistintamente
       .subscribe( (paises) => {//cambiamos el "resp" por "paises" ya que ahora que es de tipado Country[], tiene más sentido

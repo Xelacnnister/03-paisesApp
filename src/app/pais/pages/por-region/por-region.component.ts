@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Country } from '../../interfaces/pais-interface';
+import { PaisService } from '../../services/pais.service';
+
 @Component({
   selector: 'app-por-region',
   templateUrl: './por-region.component.html',
@@ -8,10 +11,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PorRegionComponent {
 
-  regiones: string[] = ['africa', 'americas', 'asia', 'europe', 'oceania']; //trabajamos con los elementos de la array en lowercase
+  regiones    : string[] = ['africa', 'americas', 'asia', 'europe', 'oceania']; //trabajamos con los elementos de la array en lowercase
   regionActiva: string = '';
+  paises      : Country[] = [];
 
-  constructor() { }
+  constructor( private paisService: PaisService) { }//Inyectamos el servicio en el constructor para poder hacer uso de él
 
   getClaseCSS( region: string): string {
     return (region === this.regionActiva) //usamos un ternario que hace lo siguiente: Si la región es igual a la region activa,
@@ -20,9 +24,14 @@ export class PorRegionComponent {
   }   
 
   activarRegion( region: string){
+
+    if( region === this.regionActiva ) { return; } //evita que vuelva a cargar los paises de nuevo cuando se selecciona la region que ya está activa
     this.regionActiva = region;
+    this.paises = []; //vaciamos el array de paises para mejorarel tiempo de respuesta
 
     //TODO: hacer el llamado al servicio
+    this.paisService.buscarRegion( region )
+      .subscribe( paises => this.paises = paises);// Asigna la información recibida de la API a nuestra variable local this.paises
   }
 
 }

@@ -33,4 +33,10 @@ export class PaisService {
     return this.http.get<Country>( url ); // se tiene que especificar el tipado Country, de otra forma el get puede devolver cualquier cosa (any)
   }   
 
+  buscarRegion( region: string ): Observable<Country[]>{
+    const url = `${ this.apiUrl }/region/${ region }`;
+
+    return this.http.get<Country[]>( url );
+  }
+
 }
