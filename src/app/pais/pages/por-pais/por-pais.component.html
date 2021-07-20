@@ -14,6 +14,23 @@
     
         </div>
     </div>
+
+    <ul *ngIf="mostrarSugerencias"
+        class="list-group"><!--Solo se mostrará cuando hayan sugerencias-->
+        <li *ngFor="let pais of paisesSugeridos" class="list-group-item list-group-item-action">
+            <a  class="nav-link"
+                [routerLink]="['/pais', pais.alpha2Code]"><!--Crea el link en los paises que aparecen en sugerencias para poder ir a su detalle-->
+                {{pais.name}}
+            </a>
+        </li>
+        <li class="list-group-item list-group-item-action"
+            (click)="buscarSugerido( termino )"><!--Aplica el método buscarSugerido(), nos mostrará la tabla de paises que coinciden con los términos de búsqueda-->
+            <a class="nav-link"><!--Crea el link en los paises que aparecen en sugerencias para poder ir a su detalle-->
+                Buscar "{{ termino }}"
+            </a>
+        </li>
+
+    </ul>
     
     <hr>
     
